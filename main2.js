@@ -11,6 +11,7 @@ function maps(x){
     return newArr;
 }
 
+
     //take in array;
 function minMax(arr){
     //identify high and low values
@@ -234,104 +235,34 @@ function stringClean(s){
     return s;
 }
 
-//Take an input and return this sentence:
 
-function greet(name){
-    return `Hello, ${name} how are you doing today?`;
-  }
-  greet(Nick);
+//Given a number n, return the number of positive odd numbers below n, EASY!
+//create a loop that's going to run from 0 to n and return all of the numbers less than n but > 0;
 
-
-//Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
-
-function sumMix(x){
-    //declared a variable for the value to be returned;
-      let sum = 0;
-      //Used forEach to grab the value of each item in the array;
-      x.forEach(function(int) {
-          //Created an if statement to check if 'int' is a string;    
-          if (typeof int == 'string') {
-             //If int was a string, used parseInt to convert it into a number;
-             let value = parseInt (int);
-             //Added the converted value to the sum variable;
-             sum += value;
-          }
-          //If it was a number, added to the sum vairable;
-          else {
-              sum += int
-          }
-      } )
-      //outputs the result of adding all of the items in the array;
-      return sum 
-  }
-
-
-  //You were camping with your friends far away from home, but when it's time to go back, you realize that your fuel is running out and the nearest pump is 50 miles away! You ////know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left. Considering these factors, write a function that tells you if it is possible to ///get to the pump or not. Function should return true (1 in Prolog and NASM) if it is possible and false (0 in Prolog and NASM) if not. The input values are always positive.
-
- const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
-    if (distanceToPump === mpg * fuelLeft) {
-        return true;
+function oddCount(n){
+    let arr = [];
+    for(i = 0; i < n; i++) {
+        if (i % 2 !== 0) {
+            arr.push(i);
+        } 
     }
-    else {
-      return false;
-    }
+    return arr.length;
 }
 
-const reverseSeq = n => {
-  let arr = [];
-  if (n > 0) {
-    for(let int = n; int > 0; int--) {
-      arr.push(int);
+function oddCount(n){
+    let count = 0;
+    for(i = 0; i < n; i++) {
+        if (i % 2 !== 0) {
+            count++;
+        } 
     }
-  }
-  return arr;
-}
-
-console.log(reverseSeq(6));
-
-
-
-
-//Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
-//
-//Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
-
-
-
-function lovefunc(flower1, flower2){
-  if (flower1 % 2 === 0 && flower2 % 2 !== 0) {
-    return true;
-  }
-  else if (flower1 % 2 !== 0 && flower2 % 2 === 0) {
-    return true;
-  }
-  else {
-    return false;
-  }
+    return count;
 }
 
 
-
-//Given an array of integers your solution should find the smallest integer.
-//
-//For example:
-//
-//    Given [34, 15, 88, 2] your solution will return 2
-//    Given [34, -345, -1, 100] your solution will return -345
-
-
-//You can assume, for the purpose of this kata, that the supplied array will not be empty.
-
-class SmallestIntegerFinder {
-    findSmallestInt(args) {
-      let w = Infinity;
-      args.forEach (function(value) {
-        if (value < w) {
-          w = value;
-        }
-      })
-      return w;
+function oddCount(n) {
+    if (n % 2 !== 0) {
+        n++
     }
-  }
-  
-  
+    return n/2;
+}
