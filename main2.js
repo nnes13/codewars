@@ -266,3 +266,11 @@ function oddCount(n) {
     }
     return n/2;
 }
+
+//Write a function that returns a string in which firstname is swapped with last name.
+
+function nameShuffler(str){
+    let arr = str.split(' ');
+    arr.reverse();
+    return arr.join(' ')
+}
