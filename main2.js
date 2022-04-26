@@ -274,3 +274,170 @@ function nameShuffler(str){
     arr.reverse();
     return arr.join(' ')
 }
+
+//You have to write the ATM's function that determines the minimal number of banknotes needed to honor a withdrawal of n dollars, with 1 <= n <= 1500.
+
+function solve(n) {
+    let numOfBills = 0;
+    if (n % 10 !== 0) {
+        return -1;
+    }
+    if (n % 500 === 0) {
+        return n / 500;
+    }
+    else {
+        numOfBills += (n - (n % 500)) / 500;
+        n = n % 500;
+    }
+    if (n % 200 === 0) {
+        return numOfBills + n / 200;
+    }
+    else {
+        numOfBills += (n - (n % 200)) / 200;
+        n = n % 200;
+    }
+    if (n % 100 === 0) {
+        return numOfBills + n / 100;
+    }
+    else {
+        numOfBills += (n - (n % 100)) / 100;
+        n = n % 100;
+    }
+    if (n % 50 === 0) {
+        return numOfBills + n / 50;
+    }
+    else {
+        numOfBills += (n - (n % 50)) / 50;
+        n = n % 50;
+    }
+    if (n % 20 === 0) {
+        return numOfBills + n / 20;
+    }
+    else {
+        numOfBills += (n - (n % 20)) / 20;
+        n = n % 20;
+    }
+    if (n % 10 === 0) {
+        return numOfBills + n / 10;
+    }
+    else {
+        numOfBills += (n - (n % 10)) / 10;
+        n = n % 10;
+    }
+    return numOfBills;
+
+    //How much to withdraw
+    //Figure out the breakdown to get n
+    //how many times do each denomination go into n
+    //return that number or -1 or if it's impossible. 
+}
+
+
+//Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+
+var capitals = function (word) {
+    let arr = [];
+    for (let i = 0; i < word.length; i++) {
+        if (word[i] === word[i].toUpperCase()) { 
+            arr.push(i);
+        }
+    }
+    return arr;
+};
+
+
+//Given a list of integers, determine whether the sum of its elements is odd or even.
+//Give your answer as a string matching "odd" or "even".
+
+function oddOrEven(array) {
+    //add the elements
+    let total = array.reduce(function(acc, value){
+        return acc + value;
+    },0);
+    //conditional to see what to return
+    //check if it's odd or even
+    if (total % 2 === 0) {
+        return 'even'
+    }
+    else {
+        return 'odd';
+    }
+}
+
+
+//Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+function reverseWords(str) {
+    //reverse every word in the string seperately with a space between. 
+    let arr = str.split(' ');
+    //map to use split, reverse and join on each word in the array individually
+    return arr.map(function(word){
+        return word.split('').reverse().join('')
+    }).join(' ');
+}
+
+//Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+function countPositivesSumNegatives(input) {
+    if (input === null || input.length === 0) {
+        return [];
+    }
+    let newArr = [];
+    let count = 0;
+    let sum = 0;
+    //return a new array that counts the positive and sums the negative nums in input(array)
+    for(let i = 0; i < input.length; i++) {
+    //conditional for if it's positive or negative, positive ones get added, negative ones get summed. 
+        if (input[i] > 0) {
+            count ++;
+        }
+        else {
+            sum += input[i];
+        }
+    }
+    newArr.push(count);
+    newArr.push(sum);        
+    return newArr;
+}
+
+
+var humanYearsCatYearsDogYears = function(humanYears) {
+    //create array to return and push human years as 1st value;
+    let arr = [];
+    arr.push(humanYears);
+
+    //code for cat years and push to array;
+    let catYears
+    if (humanYears === 1) {
+        catYears = 15;
+    }
+    else if (humanYears === 2) {
+        catYears = 24;
+    }
+    else if (humanYears > 2) {
+        catYears = 24;
+        for(let i = 2; i < humanYears; i++) {
+            catYears += 4;
+        }
+    }
+    arr.push(catYears);
+
+    //code for dog years and push to array
+
+    let dogYears
+    if (humanYears === 1) {
+        dogYears = 15;
+    }
+    else if (humanYears === 2) {
+        dogYears = 24;
+    }
+    else if (humanYears > 2) {
+        dogYears = 24;
+        for(let i = 2; i < humanYears; i++) {
+            dogYears += 5;
+        }
+    }
+    arr.push(dogYears);
+
+    return arr;
+}
+  
